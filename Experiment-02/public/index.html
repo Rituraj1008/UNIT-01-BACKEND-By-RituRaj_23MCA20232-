@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input, button {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #00ffee;
+            color: white;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #147795;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .employee-actions {
+            display: flex;
+        }
+
+        .employee-actions button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .employee-actions button.delete {
+            background-color: #dc3545;
+        }
+
+        .employee-actions button:hover {
+            opacity: 0.8;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .edit-form-container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        #com{
+            text-align: center;
+            width: 45px;
+            height: 55px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background-color: #ff0088;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="com">Welcome to RRR Company</h1>
+    <h1>Employee Data</h1>
+    <form id="employee-form">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="number" id="salary" placeholder="Salary" required>
+        <input type="text" id="profile" placeholder="Profile" required>
+        <button type="submit">Add Employee</button>
+    </form>
+    <h2>Employee List</h2>
+    <ul id="employee-list"></ul>
+
+    <div class="edit-form-container">
+        <form id="edit-form" class="hidden">
+            <input type="text" id="edit-name" placeholder="Name" required>
+            <input type="number" id="edit-salary" placeholder="Salary" required>
+            <input type="text" id="edit-profile" placeholder="Profile" required>
+            <button type="submit">Update Employee</button>
+            <button type="button" onclick="cancelEdit()">Cancel</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('employee-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const salary = document.getElementById('salary').value;
+            const profile = document.getElementById('profile').value;
+
+            fetch('/addEmployee', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, salary, profile })
+            }).then(() => {
+                fetchEmployees();
+                document.getElementById('employee-form').reset();
+            });
+        });
+
+        function fetchEmployees() {
+            fetch('/getEmployees')
+                .then(response => response.json())
+                .then(data => {
+                    const employeeList = document.getElementById('employee-list');
+                    employeeList.innerHTML = '';
+                    data.forEach(employee => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <div>
+                                <strong>Name:</strong> ${employee.name} <br>
+                                <strong>Salary:</strong> ${employee.salary} <br>
+                                <strong>Profile:</strong> ${employee.profile}
+                            </div>
+                            <div class="employee-actions">
+                                <button onclick="showEditForm('${employee.name}', '${employee.salary}', '${employee.profile}')">Edit</button>
+                                <button class="delete" onclick="deleteEmployee('${employee.name}')">Delete</button>
+                            </div>`;
+                        employeeList.appendChild(li);
+                    });
+                });
+        }
+
+        function showEditForm(name, salary, profile) {
+            document.getElementById('edit-name').value = name;
+            document.getElementById('edit-salary').value = salary;
+            document.getElementById('edit-profile').value = profile;
+            document.getElementById('edit-form').classList.remove('hidden');
+            document.getElementById('edit-form').onsubmit = function(e) {
+                e.preventDefault();
+                const newName = document.getElementById('edit-name').value;
+                const newSalary = document.getElementById('edit-salary').value;
+                const newProfile = document.getElementById('edit-profile').value;
+
+                fetch(`/updateEmployee/${name}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name: newName, salary: newSalary, profile: newProfile })
+                }).then(() => {
+                    fetchEmployees();
+                    document.getElementById('edit-form').classList.add('hidden');
+                });
+            }
+        }
+
+        function cancelEdit() {
+            document.getElementById('edit-form').classList.add('hidden');
+        }
+
+        function deleteEmployee(name) {
+            fetch(`/deleteEmployee/${name}`, {
+                method: 'DELETE'
+            }).then(() => {
+                fetchEmployees();
+            });
+        }
+
+        fetchEmployees();
+    </script>
+</body>
+</html>

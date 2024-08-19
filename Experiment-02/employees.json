@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Ritu Raj",
+    "salary": "87000",
+    "profile": "Back-End Developer"
+  },
+  {
+    "name": "Amit kumar",
+    "salary": "72000",
+    "profile": "Front-End Developer"
+  },
+  {
+    "name": "RAHUL Bhai",
+    "salary": "56000",
+    "profile": "LINUX-Dev"
+  },
+  {
+    "name": "Ayushi saini",
+    "salary": "78522",
+    "profile": "UI/UX"
+  },
+  {
+    "name": "Priyank",
+    "salary": "71000",
+    "profile": "UI/UX"
+  },
+  {
+    "name": "Nag",
+    "salary": "67000",
+    "profile": "Java-Dev"
+  }
+]
