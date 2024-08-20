@@ -64,7 +64,8 @@ Repository URL: [UNIT-01-BACKEND-By-RituRaj_23MCA20232](https://github.com/Ritur
   - User authentication (Login/Signup).
   - Admin-only access to employee management system CRUD operations.
   - Secure handling of user data.
-- **Image**:  
+- **Image**:
+- https://github.com/Rituraj1008/UNIT-01-BACKEND-By-RituRaj_23MCA20232-/blob/94dd770b9093dd6972735046ee38283f2f09003c/Screenshot%202024-08-10%20223455.png
   
 
 ## Learning Outcomes
