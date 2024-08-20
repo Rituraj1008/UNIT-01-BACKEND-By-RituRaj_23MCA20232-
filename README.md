@@ -33,8 +33,10 @@ Repository URL: [UNIT-01-BACKEND-By-RituRaj_23MCA20232](https://github.com/Ritur
   - Read and display employee details from the JSON file.
   - Update existing employee records in the JSON file.
   - Delete employee records from the JSON file.
-- **Image**:  
-  _Add a relevant image here_
+- **Image**:
+-  ![imge alt](https://github.com/Rituraj1008/UNIT-01-BACKEND-By-RituRaj_23MCA20232-/blob/bba593cf7892d2a972038402f80cb0ac85ff1bdf/Screenshot%202024-08-01%20165756.png)
+   ![imge alt](  https://github.com/Rituraj1008/UNIT-01-BACKEND-By-RituRaj_23MCA20232-/blob/69269c60c53c3b5bd333ce8d885af652c2cfc00c/Screenshot%202024-08-01%20165817.png)
+  
 
 ### 3. CRUD Operations on File System
 - **Objective**: Perform CRUD operations directly on the file system.
