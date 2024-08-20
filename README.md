@@ -48,8 +48,7 @@ Repository URL: [UNIT-01-BACKEND-By-RituRaj_23MCA20232](https://github.com/Ritur
   - Read data from files.
   - Update data in existing files.
   - Delete files.
-- **Image**:  
-  _Add a relevant image here_
+
 
 ### 4. Login/Signup Form with Admin CRUD Access
 - **Objective**: Implement a login/signup system where only admins can perform CRUD operations on the employee management system.
@@ -66,7 +65,7 @@ Repository URL: [UNIT-01-BACKEND-By-RituRaj_23MCA20232](https://github.com/Ritur
   - Admin-only access to employee management system CRUD operations.
   - Secure handling of user data.
 - **Image**:  
-  _Add a relevant image here_
+  
 
 ## Learning Outcomes
 
