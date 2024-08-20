@@ -66,7 +66,7 @@ Repository URL: [UNIT-01-BACKEND-By-RituRaj_23MCA20232](https://github.com/Ritur
   - Secure handling of user data.
 - **Image**:
 - https://github.com/Rituraj1008/UNIT-01-BACKEND-By-RituRaj_23MCA20232-/blob/94dd770b9093dd6972735046ee38283f2f09003c/Screenshot%202024-08-10%20223455.png
-  
+  https://github.com/Rituraj1008/UNIT-01-BACKEND-By-RituRaj_23MCA20232-/blob/8e8af7e6b12ebd3d6afd91eb1732ad9e9ef8300b/Screenshot%202024-08-10%20223518.png
 
 ## Learning Outcomes
 
