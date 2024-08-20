@@ -19,7 +19,7 @@ Repository URL: [UNIT-01-BACKEND-By-RituRaj_23MCA20232](https://github.com/Ritur
   - Delete employees.
   - View a list of all employees.
 - **Image**:  
-  _Add a relevant image here_
+  ![imge alt](https://github.com/Rituraj1008/UNIT-01-BACKEND-By-RituRaj_23MCA20232-/blob/bba593cf7892d2a972038402f80cb0ac85ff1bdf/Screenshot%202024-08-01%20165756.png)
 
 ### 2. CRUD Operations on Employee Management System (JSON File)
 - **Objective**: Perform CRUD (Create, Read, Update, Delete) operations on a JSON file containing employee data.
